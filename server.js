@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const res = require('express/lib/response');
 const colors = require('colors');
 const morgan = require('morgan');
+const errorHandler=require('./middleware/error')
 const connectDB =require('./config/db')
 
 
@@ -26,10 +27,13 @@ connectDB();
 
 //middleware
 app.use(logger);
-app.use(express.json());
+app.use(express.json());   //parse request
 
 //mount routes
-app.use('/api/v1/bootcamps/',bootcamps)
+app.use('/api/v1/bootcamps/',bootcamps);
+app.use(errorHandler);
+
+
 
 // app.get('/api/v1/bootcamps/',(req,res)=>{
 //     res.status(200).json({status:true, msg:'get all the bootcamps'})
