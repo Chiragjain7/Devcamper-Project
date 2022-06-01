@@ -1,24 +1,25 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const res = require('express/lib/response');
+dotenv.config({path:'./config/config.env'});
 const colors = require('colors');
 const morgan = require('morgan');
 const errorHandler=require('./middleware/error')
 const connectDB =require('./config/db')
 
-
+console.log('server.js')
 // get route files
 const bootcamps=require('./routes/bootcamp.js')
 
 //Load env vars
 
-dotenv.config({path:'./config/config.env'});
+// dotenv.config({path:'./config/config.env'});
 
 const app=express();
 
 
 //get middleware
-const logger = require('./middleware/logger.js');
+//const logger = require('./middleware/logger.js');
 const req = require('express/lib/request');
 
 //connect MongoDB database
@@ -26,7 +27,7 @@ const req = require('express/lib/request');
 connectDB();
 
 //middleware
-app.use(logger);
+//app.use(logger);
 app.use(express.json());   //parse request
 
 //mount routes

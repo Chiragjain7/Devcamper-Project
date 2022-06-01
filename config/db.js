@@ -1,3 +1,4 @@
+console.log('db.js')
 const { bold } = require('colors');
 const mongoose=require('mongoose');
 

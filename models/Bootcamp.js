@@ -1,3 +1,4 @@
+console.log('models.js')
 const mongoose=require('mongoose');
 const slugify = require('slugify');
 const geocoder = require('../utils/geocoder');
@@ -118,6 +119,6 @@ BootCampSchema.pre('save', async function(next) {
       zipcode: loc[0].zipcode,
       country: loc[0].countryCode
     };
-  
+    next();
 })
 module.exports = mongoose.model('Bootcamp',BootCampSchema);

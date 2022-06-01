@@ -1,3 +1,4 @@
+console.log('errorResponse utils')
 class ErrorResponse extends Error {
     constructor(message, statusCode) {
       super(message);
